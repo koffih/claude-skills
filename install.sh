@@ -42,7 +42,7 @@ run_skill_installer() {
   esac
   local url="https://raw.githubusercontent.com/$OWNER/$PREFIX$name/main/install.sh"
   local script
-  if ! script="$(curl -fsSL "$url")"; then
+  if ! script="$(curl -fsL "$url" 2>/dev/null)"; then
     echo "no skill named '$name' (expected github.com/$OWNER/$PREFIX$name). Try --list." >&2
     return 1
   fi
