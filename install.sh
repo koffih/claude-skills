@@ -126,7 +126,8 @@ case "$ACTION" in
     # Every clone of a koffih/claude-skill-* repository in the skills folder.
     for dir in "$BASE"/*/; do
       [ -d "$dir.git" ] || continue
-      origin="$(git -C "$dir" remote get-url origin 2>/dev/null || true)"
+      # Read the file rather than running git in a folder another account may own.
+      origin="$(git -C / config --file "$dir.git/config" --get remote.origin.url 2>/dev/null || true)"
       case "$origin" in
         *github.com[:/]$OWNER/$PREFIX*) NAMES+=("$(basename "${origin%.git}" | sed "s/^$PREFIX//")") ;;
       esac

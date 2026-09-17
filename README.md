@@ -51,6 +51,8 @@ It installs every catalog skill now, then adds one line to that user's crontab t
 
 Nothing is pushed to the servers and no credentials are stored on them: each account pulls public repositories.
 
+Shared folders are handled: when several accounts use the same Claude folder (for example `~/.claude` of both `root` and `dev` pointing to `/opt/<project>/.claude`), the account that owns the folder owns the skills. Root installs and updates there as that account, never running git itself in a folder another user can write to, and hands back any skill it created there before. Other accounts see the skill as `managed` and leave it alone.
+
 Skills are git clones in `~/.claude/skills/<name>` (or `$SKILLS_DIR`), so updating is a fast-forward pull. Installers refuse to overwrite or delete a folder that is not a clone of the expected repository, and refuse to update a clone with local changes.
 
 Requirements: `bash`, `git`, `curl`.
