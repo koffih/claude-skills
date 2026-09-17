@@ -35,7 +35,21 @@ curl -fsSL $CAT | bash -s -- --all                  # install or update all
 curl -fsSL $CAT | bash -s -- --update               # update the ones already installed
 curl -fsSL $CAT | bash -s -- name-a --project       # into ./.claude/skills
 curl -fsSL $CAT | bash -s -- name-a --uninstall     # remove
+curl -fsSL $CAT | bash -s -- --cron                 # install all, then update daily
+curl -fsSL $CAT | bash -s -- --no-cron              # stop the daily update
 ```
+
+## Keeping a server up to date
+
+Skills are per user: Claude Code reads `~/.claude/skills` of the account that runs it, so a skill installed as `root` is invisible to `dev`, and the other way round. Run this once in **each account** where you use Claude Code, whatever its name (`root`, `dev`, `eracoach`, `webapp`...):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/koffih/claude-skills/main/install.sh | bash -s -- --cron
+```
+
+It installs every catalog skill now, then adds one line to that user's crontab that runs `--all` every day at 05:xx (random minute, to spread servers). New skills arrive on their own, existing ones fast-forward. The last run is logged in `~/.claude/koffih-skills-update.log`. Other crontab entries are left untouched, and running `--cron` again replaces the line instead of adding a second one.
+
+Nothing is pushed to the servers and no credentials are stored on them: each account pulls public repositories.
 
 Skills are git clones in `~/.claude/skills/<name>` (or `$SKILLS_DIR`), so updating is a fast-forward pull. Installers refuse to overwrite or delete a folder that is not a clone of the expected repository, and refuse to update a clone with local changes.
 
