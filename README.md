@@ -7,6 +7,7 @@ Catalog of [Claude Code](https://claude.com/claude-code) skills published by kof
 | Skill | Invoke | What it does | Repository |
 |---|---|---|---|
 | autonomous-mode | `/autonomous-mode` | Extended autonomous work mode: inspects the project, then implements, tests and commits for hours, stopping only for irreversible decisions. | [claude-skill-autonomous-mode](https://github.com/koffih/claude-skill-autonomous-mode) |
+| web-to-mobile-app | `/web-to-mobile-app` | Turns a React + PostgreSQL web app into a premium Expo iOS/Android app (audit, design system, exams, server guards, APK, stores), then keeps building it in autonomous mode. | [claude-skill-web-to-mobile-app](https://github.com/koffih/claude-skill-web-to-mobile-app) |
 
 All skill repositories are also findable through the [`claude-code-skill` topic](https://github.com/search?q=user%3Akoffih+topic%3Aclaude-code-skill&type=repositories).
 
