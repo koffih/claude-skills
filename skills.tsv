@@ -1,2 +1,3 @@
 autonomous-mode	Extended autonomous work mode: inspects the project, then implements, tests and commits for hours, stopping only for irreversible decisions.
 web-to-mobile-app	Turns a React + PostgreSQL web app into a premium Expo iOS/Android app (audit, design system, exams, server guards, APK, stores), then keeps building it in autonomous mode.
+page-redesign	Redesigns one existing page for the best UX: captures it, keeps a contract of what it must still do, rebuilds it in your stack, checks the real render at three widths.
