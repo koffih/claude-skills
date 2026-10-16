@@ -3,3 +3,4 @@ web-to-mobile-app	Turns a React + PostgreSQL web app into a premium Expo iOS/And
 page-redesign	Redesigns one existing page for the best UX: captures it, keeps a contract of what it must still do, rebuilds it in your stack, checks the real render at three widths.
 blog-image-finder	Finds a free, legally usable image for a blog article across Pexels, Pixabay, Unsplash, Openverse and Wikimedia, downloads it as WebP with its credit line, never reuses one; CLI and HTTP API for pipelines.
 barbacane	Shields an nginx server from distributed scrapers: reads the logs, finds the networks a bot rotates its addresses through, closes them at Cloudflare; never a search engine or an access provider.
+autonomous-relaunch	Keeps a project moving across several sessions, e.g. every night: relaunches autonomous-mode from a plan.md in its own worktree and branch, judges each session itself (commits, plan untouched, no deleted test, clean tree, check still green), never pushes or merges.
